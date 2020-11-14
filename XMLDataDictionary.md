@@ -52,19 +52,19 @@ Contacts must include the “preferred” attribute set to either “true”/”
 
 > `<address style="..." type="..." mail=true/false>`
 >
->	`<number hasUnit=true/false>...</number>`
+>	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`<number hasUnit=true/false>...</number>`
 >
->	`<streetName>...</streetName>`
+>	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`<streetName>...</streetName>`
 >
->	`<streetType>...</streetType>`
+>	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`<streetType>...</streetType>`
 >
->	`<unit>...</unit>`
+>	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`<unit>...</unit>`
 >
->	`<city>...</city>`
+>	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`<city>...</city>`
 >
->	`<state>...</state> / <prov>...</prov> / <reg>...</reg>`
+>	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`<state>...</state> / <prov>...</prov> / <reg>...</reg>`
 >
->	`<country>...</country>`
+>	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`<country>...</country>`
 >
 > `</address>`
 
