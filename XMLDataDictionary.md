@@ -4,7 +4,7 @@
 
 **Span Object** 
 
-> <spanOb></spanOb>
+> `<spanOb></spanOb>`
 
 The SpanObject tag is used to designate the beginning and end of a SPAN1 Object. SpanObject tags allow parsers to accept multiple objects in one request. 
 
@@ -16,7 +16,7 @@ The SpanObject tag should include a version attribute, referencing the SPAN vers
 
 The correct syntax for the SpanOb tag is:
 
-> <spanOb version="1.0" type="resume"> ... </spanOb>
+> `<spanOb version="1.0" type="resume"> ... </spanOb>`
 
 ## Standard Tags
 
@@ -24,7 +24,7 @@ A standard tag is a tag that may be utilzed within multiple element types in the
 
 **Legal Name**
 
-> <legalName></legalName>
+> `<legalName></legalName>`
 
 The Legal Name tag is used to indicate an entity’s legal name when that entity is not of the “People” type. The Legal Name tag can be set within the Candidate tag but is mandatory within the Issuer, Institution, and Employer tags.
 
@@ -32,7 +32,7 @@ The Legal Name tag is ignored when a Given Name / Family name are present within
 
 **Contact**
 
-> <contact type="..." primary=true/false></contact>
+> `<contact type="..." primary=true/false></contact>`
 
 The Contact tag indicates a communication method. 
 
@@ -50,15 +50,15 @@ Contacts must include the “preferred” attribute set to either “true”/”
 
 **Address**
 
-> <address style="..." type="..." mail=true/false>
->	<number hasUnit=true/false>...</number>
->	<streetName>...</streetName>
->	<streetType>...</streetType>
->	<unit>...</unit>
->	<city>...</city>
->	<state>...</state> / <prov>...</prov> / <reg>...</reg>
->	<country>...</country>
-> </address>
+> `<address style="..." type="..." mail=true/false>`
+>	`<number hasUnit=true/false>...</number>`
+>	`<streetName>...</streetName>`
+>	`<streetType>...</streetType>`
+>	`<unit>...</unit>`
+>	`<city>...</city>`
+>	`<state>...</state> / <prov>...</prov> / <reg>...</reg>`
+>	`<country>...</country>`
+> `</address>`
 
 The Address tag is a container for physical address information. 
 
@@ -82,7 +82,7 @@ The Street Name is the unique portion of a Street Name.
 
 Example: Main St 
 
-`<streetName>Main</streetName>`
+> `<streetName>Main</streetName>`
 
 **_Street Type_**
 
@@ -90,7 +90,7 @@ This is the full type of a Street..
 
 Example: Main St 
 
-`<streetType>Street</streetType>`
+> `<streetType>Street</streetType>`
 
 
 
