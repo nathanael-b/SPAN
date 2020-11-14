@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<spanOb type="resume">
+<spanOb version="1.0" type="resume">
 	<head>
 		<candidate type="people">
 			<givenname hasSuffix="true">John</givenname>
