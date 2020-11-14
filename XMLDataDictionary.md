@@ -51,13 +51,21 @@ Contacts must include the “preferred” attribute set to either “true”/”
 **Address**
 
 > `<address style="..." type="..." mail=true/false>`
+>
 >	`<number hasUnit=true/false>...</number>`
+>
 >	`<streetName>...</streetName>`
+>
 >	`<streetType>...</streetType>`
+>
 >	`<unit>...</unit>`
+>
 >	`<city>...</city>`
+>
 >	`<state>...</state> / <prov>...</prov> / <reg>...</reg>`
+>
 >	`<country>...</country>`
+>
 > `</address>`
 
 The Address tag is a container for physical address information. 
