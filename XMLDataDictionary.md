@@ -100,5 +100,30 @@ Example: Main St
 
 > `<streetType>Street</streetType>`
 
+**_Unit_**
+
+The Unit Number is the full Unit Number of and Address. Unit will typically be imprted as a string and may include letters and numbers, however in common practice the unit type should be omitted. 
+
+The unit tag will be ignored unless the `hasUnit="true"` attribute is set in the `<number>` tag.
+
+**_City_**
+
+The City Tag is required for all Addresses 
+
+**_State/Province/Region_**
+
+> `<state> / <prov> / <reg>`
+
+The State Tag trio is interchangeable. One of this trio is required for all addresses. 
+
+**_Country_**
+
+The Country tag must be completed for all addresses. The country must match the SPAN1 Country Standards definition.  
+
+## Header Tags
+
+
+
+
 
 
