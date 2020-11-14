@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spanOb type="resume">
+	<head>
+		<candidate type="people">
+			<givenname hasSuffix="true">John</givenname>
+			<familyname>Sample</familyname>
+			<suffix>III</suffix>
+			<contacts>
+				<contact type="mobilephone" country="+1" allowsms="false" preferred="true">415-111-1111</contact>
+				<contact type="landphone" country="+20" preferred="false">415-000-0000</contact>
+				<contact type="email" preferred="true">johnsample@invalid.com</contact>
+			</contacts>
+			<address style="NA" type="home" mail="true">
+				<number hasUnit="true">1234</number>
+				<streetName>Main</streetName>
+				<streetType>Street</streetType>
+				<unit>20A</unit>
+				<city>San Francisco</city>
+				<state>California</state>
+				<country>USA</country>
+			</address>
+		</candidate>
+		<authorization>
+			<government country="USA" type="citizenship" expires="false" sponsored="false">true</government>
+			<government country="Italy" type="citizenship" expires="false" sponsored="false">true</government>
+			<government country="USA" type="clearance" expires="true" sponsored="true">
+				<active>true</active>
+				<level>TSC/SCI</level>
+			</government>
+			<government country="France" type="authorization" expires="true" sponsored="false">true</government>
+			<government country="Belgium" type="resident" expires="true" sponsored="false">true</government>
+			<license country="USA" state="california" countryrestricted="North America" regionRestricted="false" type="driver" expires="false" sponsored="false">true</license>
+			<license country="USA" state="california" countryrestricted="North America" regionRestricted="false" type="cdl" expires="false" sponsored="false">true</license>
+			<license country="USA" state="california" regionRestricted="true" type="professional" expires="true" sponsored="false">
+				<issuer registered="true" id="1234567890">
+					<legalName>California Board of Real Estate</legalName>
+					<gorg>true</gorg>
+				</issuer>
+				<title>Real Estate Agent</title>
+				<start>01/01/2020</start>
+				<expire>12/30/2020</expire>
+				<active>true</active>
+				<registration>9876543210</registration>
+			</license>
+		</authorization>
+	</head>
+	<formation>
+		<credential type="education" complete="true" level="university">
+			<institution registered="false">
+				<legalName>University of California</legalName>
+				<region>USA</region>
+				<city>Berkley</city>
+				<state>California</state>
+			</institution>
+			<degree>Bachelor of Science</degree>
+			<title>Computer Science</title>
+			<latin>Suma Cum Laude</latin>
+			<gpa>3.96</gpa>
+			<start>2016</start>
+			<complete>2020</complete>
+			<note>Member of XYZ Honor Society, President of Student Government 2020</note>
+		</credential>
+		<credential type="exam" complete="true" level="certification">
+			<institution registered="true" id="1234567890">
+				<legalName>Project Management Institute</legalName>
+			</institution>
+			<title>Project Management Professional</title>
+			<complete expires="true">2020</complete>
+			<expire>2023</expire>
+			<url>https://www.pmi.org</url>
+		</credential>
+	</formation>
+	<experience>
+		<role type="full">
+			<employer>
+				<legalName>JHG Technologies Inc.</legalName>
+				<region>USA</region>
+				<city>Berkley</city>
+				<state>California</state>
+				</employer>
+			<title>Junior Software Engineer</title>
+			<start>2015</start>
+			<duties format="bullet">
+				<it>Developed PHP Software Applications</it>
+				<it>Attended Daily SCRUM Meetings</it>
+			</duties>
+		</role>
+		<internship>
+			<employer>
+				<legalName>JHG Technologies Inc.</legalName>
+				<region>USA</region>
+				<city>Berkley</city>
+				<state>California</state>
+			</employer>
+			<title>Intern Software Engineer</title>
+			<start>2013</start>
+			<complete>2015</complete>
+			<duties format="narrative">
+				Assisted the software engineering team in organizaing software requirements and completeing work.
+			</duties>
+		</internship>
+	</experience>
+</spanOb>
