@@ -1,6 +1,6 @@
-#SPAN XML Data Dictionary 
+# SPAN XML Data Dictionary 
 
-##Object Basics
+## Object Basics
 
 **Span Object** 
 `<spanOb></spanOb>`
