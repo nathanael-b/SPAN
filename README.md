@@ -24,3 +24,8 @@ The [Parser Sample](parse.php) can be used to easily convert a `.resume` XML-bas
 
 A [Sample Resume](resumeSample.resume) is included showing the features of the SPAN standard resume. A [PDF Version](sampleOutput.pdf) is included for reference. 
 
+### Module 2 - Position Description and Advertisement Standard
+The PD Standard will allow Human Resources departments to export Position Descriptions from HRIS applications for use in partner applications and job boards. 
+
+### Module 3 - Application Submission Standard
+The application submission framework will allow for a merging of a resume and additional information, such as supplemental questions, government form responses, and e-signatures, into a single SPAN Object, simplifying how HRIS applications can interface with third-party Job-Boards.
