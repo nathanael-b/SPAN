@@ -22,7 +22,7 @@ The correct syntax for the SpanOb tag is:
 
 A standard tag is a tag that may be utilzed within multiple element types in the same manner. Generally, standard tags must be a child of a parent element. For example, a name tag must be the child of an institution or person element. 
 
-**Legal Name**
+### Legal Name
 
 > `<legalName></legalName>`
 
@@ -30,7 +30,7 @@ The Legal Name tag is used to indicate an entity’s legal name when that entity
 
 The Legal Name tag is ignored when a Given Name / Family name are present within the same tag space.
 
-**Contact**
+### Contact
 
 > `<contact type="..." primary=true/false></contact>`
 
@@ -48,7 +48,7 @@ Cell Phones must include the “allowsms” attribute set to either “true”/�
 
 Contacts must include the “preferred” attribute set to either “true”/”false”. This is a boolean modifier and may be set for multiple contact types. 
 
-**Address**
+### Address
 
 > `<address style="..." type="..." mail=true/false>`
 >
@@ -120,10 +120,68 @@ The State Tag trio is interchangeable. One of this trio is required for all addr
 
 The Country tag must be completed for all addresses. The country must match the SPAN1 Country Standards definition.  
 
-## Header Tags
+## Header
 
+> `<head>...</head>`
 
+The Header of a SpanObject contains all identifying information that applies to all aspects of the SpanObject. For Example a candidate’s name, contact information, and work authorizations.
 
+### Candidate
 
+> `<candidate>...</candidate>`
 
+The Candidate tag is **ALWAYS** a part of the Header for `type="resume"` and `type="application"` SPAN Objects. The Candidate tag contains a candidate’s name and contact information.
 
+### Authorizations
+
+> `<authorization>...</authorization>`
+
+The Authorization tag contains a candidate’s work authorizations, citizenship, and government issued licenses. This tag may also contain government clearances, and identity information. 
+
+#### Authorization Tags
+
+##### Common Attributes
+
+The `country` attribute must be set for all Government tags. The country must match the SPAN1 Country Standards definition.
+
+The state/prov/reg tag must be set when the authorization is issued by such. 
+
+The `expires` attribute is required and must be set to either “true”/”false”.
+
+The `sponsored` attribute is required and indicates that an employer sponsor is required to maintain the authorization. 
+
+##### Government
+
+> `<government country="..." type="..." expires="true/false" sponsored="true/false">...</government>`
+
+The Government tag describes a Government type authorization, that is not a license. Government authorization “type” attributes include: 
+- `citizenship` - Authorization due to Citizenship held by candidate.
+- `resident` - Authorization obtained through Legal Permanent Residency or similar status. 
+- `[Visa Code]` - A Visa Code can be used for certain visa types.
+- `authorization` - Authorization granted due to short term work permit or similar status. 
+- `clearance` - Government Issued Security Clearance
+
+**NOTICE:** When no child tags are required the contents of the government tag must be “true”
+
+##### License
+
+> `<license country="..." state="..." countryrestricted="..." regionRestricted="..." type="..." expires="..." sponsored="...">...</license>`
+
+The license tag is similar to the *Government* tag, and similarly has a nearly identical set of attributes. 
+
+The license tag can be used for the following tag attributes: 
+- driver - To identify a Driver License
+- cdl - To identify a Commercial Driver License
+- professional - To identify a license issued by a governing organization for a specific purpose. See *Professional License Notes* below for child tag requirements. 
+- permit - To identify a short term permission similar to a `professional` type. See *Professional License Notes* below for child tag requirements.
+
+**_Professional License Notes_**
+
+When listing a `professional` license type, the following child tags are required. 
+
+- `<issuer>...</issuer>` - The issuer tag is a parent to contain information about the organization issuing a license. The `<issuer>` tag can contain any standard `<contact>`, `<address>`, or `<url>` tags. **Note:** the `<legalname>` and `<gorg>` tags are always required. *GOrg* is `true` when the issuer is a government agency and `false` when the issuer is a non-governmental entity. 
+- `<title>...</title>` - The official full-text title of the license. This is identical in usage to degrees and other children of the `<formation>` tag.
+- `<start>...</start>` - The start date, or year of the current license. *See "Dates" in the [SPAN Import/Export Framework](SPANImportExportFramework.md) for information on how date formats are handled.* 
+- `<expire>...</expire>` - The expiration date, or year of the current license. **This tag is required when the `expires="true"` is utilized and ignored when the `expires="false"` attribute is used.** *See "Dates" in the [SPAN Import/Export Framework](SPANImportExportFramework.md) for information on how date formats are handled.* 
+- `<active>true/false</active>` - This is an optional tag that indicates if a license is active or inactive regarless of the expiration dates. 
+- `<registration>...</registration>` - The registration tag is an optional tag for including a license number or other unique identifier. 

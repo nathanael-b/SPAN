@@ -29,8 +29,8 @@
 			</government>
 			<government country="France" type="authorization" expires="true" sponsored="false">true</government>
 			<government country="Belgium" type="resident" expires="true" sponsored="false">true</government>
-			<license country="USA" state="california" countryrestricted="North America" regionRestricted="false" type="driver" expires="false" sponsored="false">true</license>
-			<license country="USA" state="california" countryrestricted="North America" regionRestricted="false" type="cdl" expires="false" sponsored="false">true</license>
+			<license country="USA" state="california" countryRestricted="North America" regionRestricted="false" type="driver" expires="false" sponsored="false">true</license>
+			<license country="USA" state="california" countryRestricted="North America" regionRestricted="false" type="cdl" expires="false" sponsored="false">true</license>
 			<license country="USA" state="california" regionRestricted="true" type="professional" expires="true" sponsored="false">
 				<issuer registered="true" id="1234567890">
 					<legalName>California Board of Real Estate</legalName>
