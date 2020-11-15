@@ -155,10 +155,11 @@ The `sponsored` attribute is required and indicates that an employer sponsor is 
 > `<government country="..." type="..." expires="true/false" sponsored="true/false">...</government>`
 
 The Government tag describes a Government type authorization, that is not a license. Government authorization “type” attributes include: 
-- citizenship - Authorization due to Citizenship held by candidate.
-- permanent - Authorization obtained through Legal Permanent Residency or similar status. 
-- \[Visa Code\] - A Visa Code can be used for certain visa types.
-- clearance - Government Issued Security Clearance
+- `citizenship` - Authorization due to Citizenship held by candidate.
+- `resident` - Authorization obtained through Legal Permanent Residency or similar status. 
+- `[Visa Code]` - A Visa Code can be used for certain visa types.
+- `authorization` - Authorization granted due to short term work permit or similar status. 
+- `clearance` - Government Issued Security Clearance
 
 **NOTICE:** When no child tags are required the contents of the government tag must be “true”
 
@@ -175,6 +176,7 @@ The license tag can be used for the following tag attributes:
 - permit - To identify a short term permission similar to a `professional` type. See *Professional License Notes* below for child tag requirements.
 
 **_Professional License Notes_**
+
 When listing a `professional` license type, the following child tags are required. 
 
 - `<issuer>...</issuer>` - The issuer tag is a parent to contain information about the organization issuing a license. The `<issuer>` tag can contain any standard `<contact>`, `<address>`, or `<url>` tags. **Note:** the `<legalname>` and `<gorg>` tags are always required. *GOrg* is `true` when the issuer is a government agency and `false` when the issuer is a non-governmental entity. 
