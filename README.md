@@ -22,5 +22,5 @@ The Resume standrd is the foundational element of the SPAN standard allowing for
 
 The [Parser Sample](parse.php) can be used to easily convert a `.resume` XML-based file into a printer-friendly and reader-friendly version. 
 
-A [Sample Resume](resumeSample.resume) is included showing the features of the SPAN standard resume. 
+A [Sample Resume](resumeSample.resume) is included showing the features of the SPAN standard resume. A [PDF Version](sampleOutput.pdf) is included for reference. 
 
