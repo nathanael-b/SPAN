@@ -196,12 +196,12 @@ The formation tag is utilized to indicate academic and professional development 
 
 > `<credential type=... complete="true/false" level=...>...</credential>`
 
-All Formation objects are of type `<credential>` the `type` attribute is used to differentiate between credential types. *All attributes are required for all objects.*
+All Formation objects are of type `<credential>` the `type` attribute is used to differentiate between credential types. **All attributes are required for all objects.**
 
 The allowable credential types are: 
 
 - `education` - The education type is used to identify the completion of a program of study. Allowable levels for the education type are `secondary` - for High School and High School equivilent credentials (such as the GED), `university` - for Undergraduate and Graduate credentials, and `post` - for Post-Graduate credneitals (including: PhD, DEd, MD, and JD).
-- `exam` - The exam type identifies certificaiton programs and other exams. The exam type supports two levels: `certification` - the general level, and `registry` - for exams that are closer to a licensure however are not issued by governmental organization. *NOTE:* If an importer does not differentiate between the two levels, inputs must be accepted equally for both levels. 
+- `exam` - The exam type identifies certificaiton programs and other exams. The exam type supports two levels: `certification` - the general level, and `registry` - for exams that are closer to a licensure however are not issued by governmental organization. **NOTE:** _If an importer does not differentiate between the two levels, inputs must be accepted equally for both levels._
 - `course` - The course type is used to identify professional education courses that do not produce a certification credneital. 
 
 Credential objects require the following tags: 
