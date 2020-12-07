@@ -185,3 +185,11 @@ When listing a `professional` license type, the following child tags are require
 - `<expire>...</expire>` - The expiration date, or year of the current license. **This tag is required when the `expires="true"` is utilized and ignored when the `expires="false"` attribute is used.** *See "Dates" in the [SPAN Import/Export Framework](SPANImportExportFramework.md) for information on how date formats are handled.* 
 - `<active>true/false</active>` - This is an optional tag that indicates if a license is active or inactive regarless of the expiration dates. 
 - `<registration>...</registration>` - The registration tag is an optional tag for including a license number or other unique identifier. 
+
+## Formation
+
+> `<formation>...</formation>`
+
+The formation tag is utilized to indicate academic and professional development experience. Formation objects include secondary and post-secondary education, professional education, certifications, and other credentials that may not be listed in the "Authorizations" containter.
+
+
