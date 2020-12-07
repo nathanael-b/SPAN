@@ -234,7 +234,7 @@ When referencing an educational program, the "title" tag should include the name
 
 ##### Exam Credentials 
 
-When referencing an exam credential, the "title" tag should be the official title of the specific certification (not the associated initials) (e.g. "Project Management Professional" *NOT:* "PMP").
+When referencing an exam credential, the "title" tag should be the official title of the specific certification (not the associated initials) (e.g. "Project Management Professional" **NOT:** "PMP").
 
 ##### Course Credentials 
 
