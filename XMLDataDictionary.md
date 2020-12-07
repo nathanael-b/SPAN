@@ -244,7 +244,7 @@ When referencing a professional education course, the "title" tag should include
 
 >`<start>...</start>`
 
-The Start date is an _Optional_ field used to indicate when a program was begun. _See Accepting Dates in SPAN for information about date formats_
+The Start date is an _Optional_ field used to indicate when a program was begun. *See "Dates" in the [SPAN Import/Export Framework](SPANImportExportFramework.md) for information on how date formats are handled.* 
 
 #### Complete 
 
@@ -252,7 +252,7 @@ The Start date is an _Optional_ field used to indicate when a program was begun.
 
 The complete date is a _Recomended_ field used to indicate when a program was completed, or a credential obtained. The `expires` attribute is optional, when set to true: an additional `<expire>` tag is required, if set to false: the `<expire>` tag is actively ignored. If no `expires` attribute is included in the complete tag, the `<expire>` tag becomes optional, and an importer may chose to ignore it. 
 
-_See Accepting Dates in SPAN for information about date formats_
+*See "Dates" in the [SPAN Import/Export Framework](SPANImportExportFramework.md) for information on how date formats are handled.* 
 
 #### Expire
 
@@ -290,6 +290,81 @@ The GPA of an educational program can be included. The `scale` attribute can be 
 
 **Importer Note:** GPAs must always be numeric values. Importers must accept a minimum of two (2) decimal places, and may truncate or round longer numbers, however a numeric value of less than 4.00 may not be ignored if an importer accepts GPA information.
 
+## Experience
 
+>`<experience>...</experience>`
 
+Experience is a container for work experience and experience requirements. There are three available sub-tags within the `<experience>` tag space, each is identical with the exception of the use of a `type` tag for professional roles that is not available for internships and volunteer positions. 
+
+### Experience Parent Tags
+
+While SPAN supports multiple experience types, an importer must accept all tag types; however, an importer is not required to differentiate between the tag types.
+
+#### Professional Role
+
+>`<role type="...">...</role>`
+
+The `<role>` tag is for referencing paid / professional level work. The `<role>` tag has an optional `type` attribute to indicate the role type as `"full"` - for fulltime, `"part"` - for part-time, `"hourly"` - for less than part-time hourly roles, and `"unpaid"` - for professional level volunteer work such as board memberships and executive roles in non-profit organizations. 
+
+#### Internship
+
+>`<internship>...</internship>`
+
+The `<internship>` tag is used to indicate an internship held by a candidate. 
+
+#### Volunteer
+
+>`<volunteer>...</volunteer>`
+
+The `<volunteer>` tag is used to describe volunteer experience obtained by a candidate. The use of this tag should typically imply that the role held todes not rise to the level of "professional level" experience.
+
+### Employer
+
+>`<employer registered="false"></employer>` 
+
+The `<employer>` tag is required for all experience entries. Currently the SPAN Alliance does not support a employer registry so the `registered` attribute, if included, must be set to `false`. When the registered attribute is set to false the `<legalName>...</legalName>` tag must be included within the employer tags.
+
+The emplopyer tag allows the following supporting tags: `<region>`, `<city>`, `<state>`, `<address>`, `<url>`
+
+### Title
+
+>`<title>...</title>`
+
+The Title tag is a required field that is used to indicate the job or position title that is/was held in a particular position. 
+
+### Start
+
+>`<start>...</start>`
+
+The Start date is a required entry indicating when a position was started. *See "Dates" in the [SPAN Import/Export Framework](SPANImportExportFramework.md) for information on how date formats are handled.* 
+
+### Complete
+
+>`<complete>...</complete>`
+
+The Complete date is an _optional_ field indicating the end of a position. **_NOTE:_** When the `<complete>` field is omitted, the Importer must accept the experience entry as "Current" or "to Present". *See "Dates" in the [SPAN Import/Export Framework](SPANImportExportFramework.md) for information on how date formats are handled.* 
+
+### Duties
+
+>`<duties format="...">...</duties>`
+
+The `<duties>` element is used to describe the specifics of an experience. The `<duties>` tag requires a `format` attribute  from the options outlined in this section. 
+
+#### Narrative 
+
+>`<duties format="narrative>...</duties>"`
+
+The Narrative format allows for a free-text string to be provided. This field accepts only unformatted text. An importer must accept a minimum of 3000 charecters and may chose to truncate overruns. 
+
+#### Bullet
+
+>`<duties format="bullet">`
+>
+>	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; `<it>...</it>`
+>
+>	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; `<it>...</it>`
+>
+>`</duties>`
+
+The bullet format allows for a bulleted representation of duties to be provided. Each bullet must be surrounded by an item (`<it>...</it>`) tag. Importers must accept a minimum of 3000 charecters in the composite of all items with a single charachter bullet added to the beginning of each item. 
 
