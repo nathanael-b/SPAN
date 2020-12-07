@@ -16,7 +16,7 @@ The SpanObject tag should include a version attribute, referencing the SPAN vers
 
 The correct syntax for the SpanOb tag is:
 
-> `<spanOb version="1.0" type="resume"> ... </spanOb>`
+> `<spanOb version="1.0" type="resume">...</spanOb>`
 
 ## Standard Tags
 
@@ -24,7 +24,7 @@ A standard tag is a tag that may be utilzed within multiple element types in the
 
 ### Legal Name
 
-> `<legalName></legalName>`
+> `<legalName>...</legalName>`
 
 The Legal Name tag is used to indicate an entity’s legal name when that entity is not of the “People” type. The Legal Name tag can be set within the Candidate tag but is mandatory within the Issuer, Institution, and Employer tags.
 
@@ -196,6 +196,48 @@ The formation tag is utilized to indicate academic and professional development 
 
 > `<credential type=... complete="true/false" level=...>...</credential>`
 
-All Formation objects are of type `<credential>` the `type` attribute is used to differentiate between credential types. 
+All Formation objects are of type `<credential>` the `type` attribute is used to differentiate between credential types. *All attributes are required for all objects.*
+
+The allowable credential types are: 
+
+- `education` - The education type is used to identify the completion of a program of study. Allowable levels for the education type are `secondary` - for High School and High School equivilent credentials (such as the GED), `university` - for Undergraduate and Graduate credentials, and `post` - for Post-Graduate credneitals (including: PhD, DEd, MD, and JD).
+- `exam` - The exam type identifies certificaiton programs and other exams. The exam type supports two levels: `certification` - the general level, and `registry` - for exams that are closer to a licensure however are not issued by governmental organization. *NOTE:* If an importer does not differentiate between the two levels, inputs must be accepted equally for both levels. 
+- `course` - The course type is used to identify professional education courses that do not produce a certification credneital. 
+
+Credential objects require the following tags: 
+
+#### Institution
+
+> `<institution registered="false"></institution>`
+
+The institution tag is used to identify the issuer of a credential. Currently the SPAN Alliance does not support a institution registry so the `registered` attribute, if included, must be set to `false`. When the registered attribute is set to false the `<legalName>...</legalName>` tag must be included within the institution tags. 
+
+The institution tag allows the following supporting tags: `<region>`, `<city>`, `<state>`, `<address>`, `<url>`
+
+#### Degree
+
+> `<degree>...</degree>`
+
+The degree tag is required for "education" credential types, and ignored for all other credential types. 
+
+The degree tag should include the academic title for the dregree, not the program title (e.g. Master of Arts)
+
+#### Title
+
+> `<title>...</title>`
+
+The title tag is required for all credential types except for "education" credential types with a level of "secondary".
+
+##### Education Programs 
+
+When referencing an educational program, the "title" tag should include the name of the specific program persued. (e.g. Literature). 
+
+##### Exam Credentials 
+
+When referencing an exam credential, the "title" tag should be the official title of the specific certification (not the associated initials) (e.g. "Project Management Professional" *NOT:* "PMP").
+
+##### Course Credentials 
+
+When referencing a professional education course, the "title" tag should include the full title of the course, as it appears in literature or on a transcript. 
 
 
