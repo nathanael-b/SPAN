@@ -1,7 +1,7 @@
 # SPAN
  
 ## What is SPAN?
-SPAN is the *Standardized Positional and Application Notation*, developed to standardize the way job applicants provide information to the Applicant Tracking System. 
+SPAN is the *Standard Personnel Application Notation*, developed to standardize the way job applicants provide information to the Applicant Tracking System. Visit the [Project Webpage](https://www.spanhr.org)
 
 ## SPAN Version 1.0
 SPAN Version 1.0 is the foundational basis for utlizing SPAN to import resumes. 
