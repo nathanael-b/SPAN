@@ -192,4 +192,10 @@ When listing a `professional` license type, the following child tags are require
 
 The formation tag is utilized to indicate academic and professional development experience. Formation objects include secondary and post-secondary education, professional education, certifications, and other credentials that may not be listed in the "Authorizations" containter.
 
+### Credential
+
+> `<credential type=... complete="true/false" level=...>...</credential>`
+
+All Formation objects are of type `<credential>` the `type` attribute is used to differentiate between credential types. 
+
 
