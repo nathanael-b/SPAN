@@ -259,3 +259,9 @@ _See Accepting Dates in SPAN for information about date formats_
 >`<expire>...</expire>`
 
 _See "Complete" for information on how to use the `<expire>` tag._
+
+#### Education ONLY Tags
+
+**_The Following Tags Apply Only to Education Type Credentials_**
+
+
