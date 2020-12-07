@@ -344,3 +344,24 @@ The Start date is a required entry indicating when a position was started. *See 
 
 The Complete date is an _optional_ field indicating the end of a position. **_NOTE:_** When the `<complete>` field is omitted, the Importer must accept the experience entry as "Current" or "to Present". *See "Dates" in the [SPAN Import/Export Framework](SPANImportExportFramework.md) for information on how date formats are handled.* 
 
+### Duties
+
+>`<duties format="...">...</duties>`
+
+The `<duties>` element is used to describe the specifics of an experience. The `<duties>` tag requires a `format` attribute  from the options outlined in this section. 
+
+#### Narrative 
+
+>`<duties format="narrative>...</duties>"`
+
+The Narrative format allows for a free-text string to be provided. This field accepts only unformatted text. An importer must accept a minimum of 3000 charecters and may chose to truncate overruns. 
+
+#### Bullet
+
+>`<duties format="bullet">`
+>	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; `<it>...</it>`
+>	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; `<it>...</it>`
+>`</duties>`
+
+The bullet format allows for a bulleted representation of duties to be provided. Each bullet must be surrounded by an item (`<it>...</it>`) tag. Importers must accept a minimum of 3000 charecters in the composite of all items with a single charachter bullet added to the beginning of each item. 
+
