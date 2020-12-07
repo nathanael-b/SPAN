@@ -359,8 +359,11 @@ The Narrative format allows for a free-text string to be provided. This field ac
 #### Bullet
 
 >`<duties format="bullet">`
+>
 >	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; `<it>...</it>`
+>
 >	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; `<it>...</it>`
+>
 >`</duties>`
 
 The bullet format allows for a bulleted representation of duties to be provided. Each bullet must be surrounded by an item (`<it>...</it>`) tag. Importers must accept a minimum of 3000 charecters in the composite of all items with a single charachter bullet added to the beginning of each item. 
