@@ -298,6 +298,8 @@ Experience is a container for work experience and experience requirements. There
 
 ### Experience Parent Tags
 
+While SPAN supports multiple experience types, an importer must accept all tag types; however, an importer is not required to differentiate between the tag types.
+
 #### Professional Role
 
 >`<role type="...">...</role>`
@@ -316,5 +318,29 @@ The `<internship>` tag is used to indicate an internship held by a candidate.
 
 The `<volunteer>` tag is used to describe volunteer experience obtained by a candidate. The use of this tag should typically imply that the role held todes not rise to the level of "professional level" experience.
 
+### Employer
 
+>`<employer registered="false"></employer>` 
+
+The `<employer>` tag is required for all experience entries. Currently the SPAN Alliance does not support a employer registry so the `registered` attribute, if included, must be set to `false`. When the registered attribute is set to false the `<legalName>...</legalName>` tag must be included within the employer tags.
+
+The emplopyer tag allows the following supporting tags: `<region>`, `<city>`, `<state>`, `<address>`, `<url>`
+
+### Title
+
+>`<title>...</title>`
+
+The Title tag is a required field that is used to indicate the job or position title that is/was held in a particular position. 
+
+### Start
+
+>`<start>...</start>`
+
+The Start date is a required entry indicating when a position was started. *See "Dates" in the [SPAN Import/Export Framework](SPANImportExportFramework.md) for information on how date formats are handled.* 
+
+### Complete
+
+>`<complete>...</complete>`
+
+The Complete date is an _optional_ field indicating the end of a position. **_NOTE:_** When the `<complete>` field is omitted, the Importer must accept the experience entry as "Current" or "to Present". *See "Dates" in the [SPAN Import/Export Framework](SPANImportExportFramework.md) for information on how date formats are handled.* 
 
