@@ -244,7 +244,7 @@ When referencing a professional education course, the "title" tag should include
 
 >`<start>...</start>`
 
-The Start date is an _Optional_ field used to indicate when a program was begun. _See Accepting Dates in SPAN for information about date formats_
+The Start date is an _Optional_ field used to indicate when a program was begun. *See "Dates" in the [SPAN Import/Export Framework](SPANImportExportFramework.md) for information on how date formats are handled.* 
 
 #### Complete 
 
@@ -252,7 +252,7 @@ The Start date is an _Optional_ field used to indicate when a program was begun.
 
 The complete date is a _Recomended_ field used to indicate when a program was completed, or a credential obtained. The `expires` attribute is optional, when set to true: an additional `<expire>` tag is required, if set to false: the `<expire>` tag is actively ignored. If no `expires` attribute is included in the complete tag, the `<expire>` tag becomes optional, and an importer may chose to ignore it. 
 
-_See Accepting Dates in SPAN for information about date formats_
+*See "Dates" in the [SPAN Import/Export Framework](SPANImportExportFramework.md) for information on how date formats are handled.* 
 
 #### Expire
 
@@ -290,6 +290,31 @@ The GPA of an educational program can be included. The `scale` attribute can be 
 
 **Importer Note:** GPAs must always be numeric values. Importers must accept a minimum of two (2) decimal places, and may truncate or round longer numbers, however a numeric value of less than 4.00 may not be ignored if an importer accepts GPA information.
 
+## Experience
+
+>`<experience>...</experience>`
+
+Experience is a container for work experience and experience requirements. There are three available sub-tags within the `<experience>` tag space, each is identical with the exception of the use of a `type` tag for professional roles that is not available for internships and volunteer positions. 
+
+### Experience Parent Tags
+
+#### Professional Role
+
+>`<role type="...">...</role>`
+
+The `<role>` tag is for referencing paid / professional level work. The `<role>` tag has an optional `type` attribute to indicate the role type as `"full"` - for fulltime, `"part"` - for part-time, `"hourly"` - for less than part-time hourly roles, and `"unpaid"` - for professional level volunteer work such as board memberships and executive roles in non-profit organizations. 
+
+#### Internship
+
+>`<internship>...</internship>`
+
+The `<internship>` tag is used to indicate an internship held by a candidate. 
+
+#### Volunteer
+
+>`<volunteer>...</volunteer>`
+
+The `<volunteer>` tag is used to describe volunteer experience obtained by a candidate. The use of this tag should typically imply that the role held todes not rise to the level of "professional level" experience.
 
 
 
