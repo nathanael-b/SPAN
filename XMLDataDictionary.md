@@ -16,7 +16,7 @@ The SpanObject tag should include a version attribute, referencing the SPAN vers
 
 The correct syntax for the SpanOb tag is:
 
-> `<spanOb version="1.0" type="resume"> ... </spanOb>`
+> `<spanOb version="1.0" type="resume">...</spanOb>`
 
 ## Standard Tags
 
@@ -24,7 +24,7 @@ A standard tag is a tag that may be utilzed within multiple element types in the
 
 ### Legal Name
 
-> `<legalName></legalName>`
+> `<legalName>...</legalName>`
 
 The Legal Name tag is used to indicate an entity’s legal name when that entity is not of the “People” type. The Legal Name tag can be set within the Candidate tag but is mandatory within the Issuer, Institution, and Employer tags.
 
@@ -185,3 +185,111 @@ When listing a `professional` license type, the following child tags are require
 - `<expire>...</expire>` - The expiration date, or year of the current license. **This tag is required when the `expires="true"` is utilized and ignored when the `expires="false"` attribute is used.** *See "Dates" in the [SPAN Import/Export Framework](SPANImportExportFramework.md) for information on how date formats are handled.* 
 - `<active>true/false</active>` - This is an optional tag that indicates if a license is active or inactive regarless of the expiration dates. 
 - `<registration>...</registration>` - The registration tag is an optional tag for including a license number or other unique identifier. 
+
+## Formation
+
+> `<formation>...</formation>`
+
+The formation tag is utilized to indicate academic and professional development experience. Formation objects include secondary and post-secondary education, professional education, certifications, and other credentials that may not be listed in the "Authorizations" containter.
+
+### Credential
+
+> `<credential type=... complete="true/false" level=...>...</credential>`
+
+All Formation objects are of type `<credential>` the `type` attribute is used to differentiate between credential types. **All attributes are required for all objects.**
+
+The allowable credential types are: 
+
+- `education` - The education type is used to identify the completion of a program of study. Allowable levels for the education type are `secondary` - for High School and High School equivilent credentials (such as the GED), `university` - for Undergraduate and Graduate credentials, and `post` - for Post-Graduate credneitals (including: PhD, DEd, MD, and JD).
+- `exam` - The exam type identifies certificaiton programs and other exams. The exam type supports two levels: `certification` - the general level, and `registry` - for exams that are closer to a licensure however are not issued by governmental organization. **NOTE:** _If an importer does not differentiate between the two levels, inputs must be accepted equally for both levels._
+- `course` - The course type is used to identify professional education courses that do not produce a certification credneital. 
+
+Credential objects require the following tags: 
+
+#### Institution
+
+> `<institution registered="false"></institution>`
+
+The institution tag is used to identify the issuer of a credential. Currently the SPAN Alliance does not support a institution registry so the `registered` attribute, if included, must be set to `false`. When the registered attribute is set to false the `<legalName>...</legalName>` tag must be included within the institution tags. 
+
+The institution tag allows the following supporting tags: `<region>`, `<city>`, `<state>`, `<address>`, `<url>`
+
+#### Degree
+
+> `<degree>...</degree>`
+
+The degree tag is required for "education" credential types, and ignored for all other credential types. 
+
+The degree tag should include the academic title for the dregree, not the program title (e.g. Master of Arts)
+
+#### Title
+
+> `<title>...</title>`
+
+The title tag is required for all credential types except for "education" credential types with a level of "secondary".
+
+##### Education Programs 
+
+When referencing an educational program, the "title" tag should include the name of the specific program persued. (e.g. Literature). 
+
+##### Exam Credentials 
+
+When referencing an exam credential, the "title" tag should be the official title of the specific certification (not the associated initials) (e.g. "Project Management Professional" **NOT:** "PMP").
+
+##### Course Credentials 
+
+When referencing a professional education course, the "title" tag should include the full title of the course, as it appears in literature or on a transcript. 
+
+#### Start
+
+>`<start>...</start>`
+
+The Start date is an _Optional_ field used to indicate when a program was begun. _See Accepting Dates in SPAN for information about date formats_
+
+#### Complete 
+
+>`<complete expires="true/false">...</complete>`
+
+The complete date is a _Recomended_ field used to indicate when a program was completed, or a credential obtained. The `expires` attribute is optional, when set to true: an additional `<expire>` tag is required, if set to false: the `<expire>` tag is actively ignored. If no `expires` attribute is included in the complete tag, the `<expire>` tag becomes optional, and an importer may chose to ignore it. 
+
+_See Accepting Dates in SPAN for information about date formats_
+
+#### Expire
+
+>`<expire>...</expire>`
+
+_See "Complete" for information on how to use the `<expire>` tag._
+
+#### Note 
+
+>`<note>...</note>`
+
+The note field is optional, and may be ignored by an importer at their discretion. The Note field allows free text in a "Single Line of Text" format to be included. 
+
+#### URL
+
+>`<url>...</url>`
+
+The URL is an optional field, and may be ignored by an importer at their discretion. The URL, when included inside the `<credential>` tag is specific to that credential and should be utilized to provide a link to credential information, verification information, or the issuer. 
+
+#### Education ONLY Tags
+
+**_The Following Tags Apply Only to Education Type Credentials_**
+
+#### Latin Honors 
+
+>`<latin>...</latin>`
+
+Latin honors, distinctions, and other honors that are added to an education credential should be included inside the `<latin>` tag. (e.g. Suma Cum Laude, With Distinction, Advanced Placement, etc.)
+
+#### GPA 
+
+>`<gpa scale="...">...</gpa>`
+
+The GPA of an educational program can be included. The `scale` attribute can be used to identify an alternative GPA Scale. Without a `scale` attribute the GPA scale will be 0.00-4.00. 
+
+**Importer Note:** GPAs must always be numeric values. Importers must accept a minimum of two (2) decimal places, and may truncate or round longer numbers, however a numeric value of less than 4.00 may not be ignored if an importer accepts GPA information.
+
+
+
+
