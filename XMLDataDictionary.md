@@ -240,4 +240,22 @@ When referencing an exam credential, the "title" tag should be the official titl
 
 When referencing a professional education course, the "title" tag should include the full title of the course, as it appears in literature or on a transcript. 
 
+#### Start
 
+>`<start>...</start>`
+
+The Start date is an _Optional_ field used to indicate when a program was begun. _See Accepting Dates in SPAN for information about date formats_
+
+#### Complete 
+
+>`<complete expires="true/false">...</complete>`
+
+The complete date is a _Recomended_ field used to indicate when a program was completed, or a credential obtained. The `expires` attribute is optional, when set to true: an additional `<expire>` tag is required, if set to false: the `<expire>` tag is actively ignored. If no `expires` attribute is included in the complete tag, the `<expire>` tag becomes optional, and an importer may chose to ignore it. 
+
+_See Accepting Dates in SPAN for information about date formats_
+
+#### Expire
+
+>`<expire>...</expire>`
+
+_See "Complete" for information on how to use the `<expire>` tag._
