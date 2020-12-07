@@ -260,8 +260,36 @@ _See Accepting Dates in SPAN for information about date formats_
 
 _See "Complete" for information on how to use the `<expire>` tag._
 
+#### Note 
+
+>`<note>...</note>`
+
+The note field is optional, and may be ignored by an importer at their discretion. The Note field allows free text in a "Single Line of Text" format to be included. 
+
+#### URL
+
+>`<url>...</url>`
+
+The URL is an optional field, and may be ignored by an importer at their discretion. The URL, when included inside the `<credential>` tag is specific to that credential and should be utilized to provide a link to credential information, verification information, or the issuer. 
+
 #### Education ONLY Tags
 
 **_The Following Tags Apply Only to Education Type Credentials_**
+
+#### Latin Honors 
+
+>`<latin>...</latin>`
+
+Latin honors, distinctions, and other honors that are added to an education credential should be included inside the `<latin>` tag. (e.g. Suma Cum Laude, With Distinction, Advanced Placement, etc.)
+
+#### GPA 
+
+>`<gpa scale="...">...</gpa>`
+
+The GPA of an educational program can be included. The `scale` attribute can be used to identify an alternative GPA Scale. Without a `scale` attribute the GPA scale will be 0.00-4.00. 
+
+**Importer Note:** GPAs must always be numeric values. Importers must accept a minimum of two (2) decimal places, and may truncate or round longer numbers, however a numeric value of less than 4.00 may not be ignored if an importer accepts GPA information.
+
+
 
 
