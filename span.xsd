@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	
+<xs:element name="spanOb">
+	<xs:complexType>
+		<xs:element name="head" minOccurs="1" maxOccurs="1">
+			<xs:complexType>
+			
+			</xs:complexType>
+		</xs:element>
+	 <xs:any/>
+	</xs:complexType>	
+	
+</xs:element>
+
+
+<!-- Reusable Complex Element Object -->
+
+	<xs:complexType name="candidateObject">
+		<xs:element name="givenname" type="xs:string">
+			<xs:complexType>
+				<xs:attribute name="hasSuffix" type="xs:boolean" />
+			</xs:complexType>
+		</xs:element>
+		<xs:element name="familyname" type="xs:string" />
+		<xs:element name="suffix" type="xs:string" 
+	</xs:complexType>
+	
+	
+	
+</xs:schema>
