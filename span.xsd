@@ -1,0 +1,216 @@
+<!-- SPAN Version 1 Definition -->
+
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="spanOb" type="spanObType"/>
+  <xs:complexType name="givennameType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="hasSuffix"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="contactType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="type" use="optional"/>
+        <xs:attribute type="xs:byte" name="country" use="optional"/>
+        <xs:attribute type="xs:string" name="allowsms" use="optional"/>
+        <xs:attribute type="xs:string" name="preferred" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="contactsType">
+    <xs:sequence>
+      <xs:element type="contactType" name="contact" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="numberType">
+    <xs:simpleContent>
+      <xs:extension base="xs:short">
+        <xs:attribute type="xs:string" name="hasUnit" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="addressType">
+    <xs:sequence>
+      <xs:element type="numberType" name="number"/>
+      <xs:element type="xs:string" name="streetName"/>
+      <xs:element type="xs:string" name="streetType"/>
+      <xs:element type="xs:string" name="unit" minOccurs="0"/>
+      <xs:element type="xs:string" name="city"/>
+      <xs:element type="xs:string" name="state"/>
+      <xs:element type="xs:string" name="country"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="style" use="optional"/>
+    <xs:attribute type="xs:string" name="type" use="optional"/>
+    <xs:attribute type="xs:string" name="mail" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="candidateType">
+    <xs:sequence>
+      <xs:element type="givennameType" name="givenname"/>
+      <xs:element type="xs:string" name="familyname"/>
+      <xs:element type="xs:string" name="suffix"/>
+      <xs:element type="contactsType" name="contacts"/>
+      <xs:element type="addressType" name="address"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="type"/>
+  </xs:complexType>
+  <xs:complexType name="governmentType" mixed="true">
+    <xs:sequence>
+      <xs:element type="issuerType" name="issuer" minOccurs="0"/>
+      <xs:element type="xs:string" name="active" minOccurs="0"/>
+      <xs:element type="xs:string" name="level" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="country" use="optional"/>
+    <xs:attribute type="xs:string" name="type" use="optional"/>
+    <xs:attribute type="xs:string" name="expires" use="optional"/>
+    <xs:attribute type="xs:string" name="sponsored" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="issuerType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="legalName"/>
+      <xs:element type="xs:string" name="gorg"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="registered" use="optional"/>
+    <xs:attribute type="xs:int" name="id" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="licenseType" mixed="true">
+    <xs:sequence>
+      <xs:element type="issuerType" name="issuer" minOccurs="0"/>
+      <xs:element type="xs:string" name="title" minOccurs="0"/>
+      <xs:element type="xs:string" name="start" minOccurs="0"/>
+      <xs:element type="xs:string" name="expire" minOccurs="0"/>
+      <xs:element type="xs:string" name="active" minOccurs="0"/>
+      <xs:element type="xs:long" name="registration" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="country" use="optional"/>
+    <xs:attribute type="xs:string" name="state" use="optional"/>
+    <xs:attribute type="xs:string" name="countryRestricted" use="optional"/>
+    <xs:attribute type="xs:string" name="regionRestricted" use="optional"/>
+    <xs:attribute type="xs:string" name="type" use="optional"/>
+    <xs:attribute type="xs:string" name="expires" use="optional"/>
+    <xs:attribute type="xs:string" name="sponsored" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="authorizationType">
+    <xs:sequence>
+      <xs:element type="governmentType" name="government" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element type="licenseType" name="license" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="headType">
+    <xs:sequence>
+      <xs:element type="candidateType" name="candidate"/>
+      <xs:element type="authorizationType" name="authorization"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="institutionType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="legalName"/>
+      <xs:element type="xs:string" name="region" minOccurs="0"/>
+      <xs:element type="xs:string" name="city" minOccurs="0"/>
+      <xs:element type="xs:string" name="state" minOccurs="0"/>
+      <xs:element type="xs:string" name="url" minOccurs="0"/>
+      <xs:element type="contactsType" name="contacts" minOccurs="0"/>
+      <xs:element type="addressType" name="address" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="registered" use="optional"/>
+    <xs:attribute type="xs:int" name="id" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="credentialType">
+    <xs:sequence>
+      <xs:element type="institutionType" name="institution"/>
+      <xs:element type="xs:string" name="degree" minOccurs="0"/>
+      <xs:element type="xs:string" name="title"/>
+      <xs:element type="xs:string" name="latin" minOccurs="0"/>
+      <xs:element type="xs:float" name="gpa" minOccurs="0"/>
+      <xs:element type="xs:string" name="start" minOccurs="0"/>
+      <xs:element name="complete" minOccurs="0">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:short">
+              <xs:attribute type="xs:string" name="expires" use="optional"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element type="xs:string" name="note" minOccurs="0"/>
+      <xs:element type="xs:short" name="expire" minOccurs="0"/>
+      <xs:element type="xs:string" name="url" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="type" use="optional"/>
+    <xs:attribute type="xs:string" name="complete" use="optional"/>
+    <xs:attribute type="xs:string" name="level" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="completeType">
+    <xs:simpleContent>
+      <xs:extension base="xs:short">
+        <xs:attribute type="xs:string" name="expires" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="formationType">
+    <xs:choice maxOccurs="unbounded" minOccurs="0">
+      <xs:element type="credentialType" name="credential"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="employerType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="legalName"/>
+      <xs:element type="xs:string" name="region" minOccurs="0"/>
+      <xs:element type="xs:string" name="city" minOccurs="0"/>
+      <xs:element type="xs:string" name="state" minOccurs="0"/>
+      <xs:element type="xs:string" name="url" minOccurs="0"/>
+      <xs:element type="addressType" name="address" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="dutiesType" mixed="true">
+    <xs:sequence>
+      <xs:element type="xs:string" name="it" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="format" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="roleType">
+    <xs:sequence>
+      <xs:element type="employerType" name="employer"/>
+      <xs:element type="xs:string" name="title"/>
+      <xs:element type="xs:short" name="start"/>
+      <xs:element type="xs:short" name="complete" minOccurs="0"/>
+      <xs:element type="dutiesType" name="duties"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="type" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="internshipType">
+    <xs:sequence>
+      <xs:element type="employerType" name="employer"/>
+      <xs:element type="xs:string" name="title"/>
+      <xs:element type="xs:short" name="start"/>
+      <xs:element type="xs:short" name="complete"/>
+      <xs:element type="dutiesType" name="duties"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="volunteerType">
+    <xs:sequence>
+      <xs:element type="employerType" name="employer"/>
+      <xs:element type="xs:string" name="title"/>
+      <xs:element type="xs:short" name="start"/>
+      <xs:element type="xs:short" name="complete"/>
+      <xs:element type="dutiesType" name="duties"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="experienceType">
+    <xs:sequence>
+      <xs:element type="roleType" name="role" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element type="internshipType" name="internship"/>
+      <xs:element type="volunteerType" name="volunteer"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="spanObType">
+    <xs:sequence>
+      <xs:element type="headType" name="head"/>
+      <xs:element type="formationType" name="formation"/>
+      <xs:element type="experienceType" name="experience"/>
+    </xs:sequence>
+    <xs:attribute type="xs:float" name="version"/>
+    <xs:attribute type="xs:string" name="type"/>
+  </xs:complexType>
+</xs:schema>

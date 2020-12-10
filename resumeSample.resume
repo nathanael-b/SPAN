@@ -21,24 +21,29 @@
 			</address>
 		</candidate>
 		<authorization>
-			<government country="USA" type="citizenship" expires="false" sponsored="false">true</government>
-			<government country="Italy" type="citizenship" expires="false" sponsored="false">true</government>
+			<government country="USA" type="citizenship" expires="false" sponsored="false"/>
+			<government country="Italy" type="citizenship" expires="false" sponsored="false"/>
 			<government country="USA" type="clearance" expires="true" sponsored="true">
+				<issuer registered="false">
+					<legalName>United States Office of Personnel Management</legalName>
+					<gorg>true</gorg>
+				</issuer>
 				<active>true</active>
 				<level>TSC/SCI</level>
 			</government>
-			<government country="France" type="authorization" expires="true" sponsored="false">true</government>
-			<government country="Belgium" type="resident" expires="true" sponsored="false">true</government>
-			<license country="USA" state="california" countryRestricted="North America" regionRestricted="false" type="driver" expires="false" sponsored="false">true</license>
-			<license country="USA" state="california" countryRestricted="North America" regionRestricted="false" type="cdl" expires="false" sponsored="false">true</license>
-			<license country="USA" state="california" regionRestricted="true" type="professional" expires="true" sponsored="false">
+			<government country="France" type="authorization" expires="true" sponsored="false"/>
+			<government country="Belgium" type="resident" expires="true" sponsored="false"/>
+			<license country="USA" state="california" countryRestricted="North America" regionRestricted="false" type="driver" expires="false" sponsored="false"/>
+			<license country="France"  countryRestricted="false" regionRestricted="Europe" type="driver" expires="false" sponsored="false"/>
+			<license country="USA" state="california" countryRestricted="North America" regionRestricted="false" type="cdl" expires="false" sponsored="false"/>
+			<license country="USA" state="california" regionRestricted="true" type="professional" expires="true" sponsored="true">
 				<issuer registered="true" id="1234567890">
 					<legalName>California Board of Real Estate</legalName>
 					<gorg>true</gorg>
 				</issuer>
 				<title>Real Estate Agent</title>
-				<start>01/01/2020</start>
-				<expire>12/30/2020</expire>
+				<start>01-01-2020</start>
+				<expire>12-30-2020</expire>
 				<active>true</active>
 				<registration>9876543210</registration>
 			</license>
@@ -60,14 +65,44 @@
 			<complete>2020</complete>
 			<note>Member of XYZ Honor Society, President of Student Government 2020</note>
 		</credential>
+		<credential type="education" complete="false" level="university">
+			<institution registered="false">
+				<legalName>Stanford University</legalName>
+				<region>USA</region>
+				<city>Palo Alto</city>
+				<state>California</state>
+				<url>https://stanford.edu</url>
+			</institution>
+			<degree>Master of Science</degree>
+			<title>Computer Science</title>
+			<start>2020</start>
+		</credential>
 		<credential type="exam" complete="true" level="certification">
 			<institution registered="true" id="1234567890">
 				<legalName>Project Management Institute</legalName>
+				<contacts>
+					<contact type="landphone" country="+1" preferred="false">415-000-0000</contact>
+				</contacts>
 			</institution>
 			<title>Project Management Professional</title>
 			<complete expires="true">2020</complete>
 			<expire>2023</expire>
 			<url>https://www.pmi.org</url>
+		</credential>
+		<credential type="course" complete="false">
+			<institution registered="false">
+				<legalName>SPAN Alliance</legalName>
+					<address style="NA" type="business" mail="true">
+					<number hasUnit="false">1234</number>
+					<streetName>Main</streetName>
+					<streetType>Street</streetType>
+					<city>San Francisco</city>
+					<state>California</state>
+					<country>USA</country>
+				</address>
+			</institution>
+			<title>Developing SPAN Objects</title>
+			<start>10-10-2020</start>
 		</credential>
 	</formation>
 	<experience>
@@ -77,9 +112,30 @@
 				<region>USA</region>
 				<city>Berkley</city>
 				<state>California</state>
-				</employer>
+				<url>https://www.somecompany.com</url>
+			</employer>
 			<title>Junior Software Engineer</title>
 			<start>2015</start>
+			<duties format="bullet">
+				<it>Developed PHP Software Applications</it>
+				<it>Attended Daily SCRUM Meetings</it>
+			</duties>
+		</role>
+		<role type="part">
+			<employer>
+				<legalName>JHG Technologies Inc.</legalName>
+				<address style="NA" type="business" mail="true">
+					<number hasUnit="false">1234</number>
+					<streetName>Main</streetName>
+					<streetType>Street</streetType>
+					<city>San Francisco</city>
+					<state>California</state>
+					<country>USA</country>
+				</address>
+			</employer>
+			<title>Junior Software Engineer</title>
+			<start>2010</start>
+			<complete>2015</complete>
 			<duties format="bullet">
 				<it>Developed PHP Software Applications</it>
 				<it>Attended Daily SCRUM Meetings</it>
@@ -99,5 +155,19 @@
 				Assisted the software engineering team in organizaing software requirements and completeing work.
 			</duties>
 		</internship>
+		<volunteer>
+			<employer>
+				<legalName>JAmerican Red Cross</legalName>
+				<region>USA</region>
+				<city>Washington</city>
+				<state>District of Columbia</state>
+			</employer>
+			<title>Web Developer</title>
+			<start>2013</start>
+			<complete>2015</complete>
+			<duties format="narrative">
+				Built organization web site.
+			</duties>
+		</volunteer>
 	</experience>
 </spanOb>
