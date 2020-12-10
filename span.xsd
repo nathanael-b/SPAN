@@ -1,3 +1,5 @@
+<!-- SPAN Version 1 Definition -->
+
 <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:element name="spanOb" type="spanObType"/>
   <xs:complexType name="givennameType">
@@ -25,7 +27,7 @@
   <xs:complexType name="numberType">
     <xs:simpleContent>
       <xs:extension base="xs:short">
-        <xs:attribute type="xs:string" name="hasUnit"/>
+        <xs:attribute type="xs:string" name="hasUnit" use="optional"/>
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
@@ -34,14 +36,14 @@
       <xs:element type="numberType" name="number"/>
       <xs:element type="xs:string" name="streetName"/>
       <xs:element type="xs:string" name="streetType"/>
-      <xs:element type="xs:string" name="unit"/>
+      <xs:element type="xs:string" name="unit" minOccurs="0"/>
       <xs:element type="xs:string" name="city"/>
       <xs:element type="xs:string" name="state"/>
       <xs:element type="xs:string" name="country"/>
     </xs:sequence>
-    <xs:attribute type="xs:string" name="style"/>
-    <xs:attribute type="xs:string" name="type"/>
-    <xs:attribute type="xs:string" name="mail"/>
+    <xs:attribute type="xs:string" name="style" use="optional"/>
+    <xs:attribute type="xs:string" name="type" use="optional"/>
+    <xs:attribute type="xs:string" name="mail" use="optional"/>
   </xs:complexType>
   <xs:complexType name="candidateType">
     <xs:sequence>
@@ -55,6 +57,7 @@
   </xs:complexType>
   <xs:complexType name="governmentType" mixed="true">
     <xs:sequence>
+      <xs:element type="issuerType" name="issuer" minOccurs="0"/>
       <xs:element type="xs:string" name="active" minOccurs="0"/>
       <xs:element type="xs:string" name="level" minOccurs="0"/>
     </xs:sequence>
@@ -62,6 +65,14 @@
     <xs:attribute type="xs:string" name="type" use="optional"/>
     <xs:attribute type="xs:string" name="expires" use="optional"/>
     <xs:attribute type="xs:string" name="sponsored" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="issuerType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="legalName"/>
+      <xs:element type="xs:string" name="gorg"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="registered" use="optional"/>
+    <xs:attribute type="xs:int" name="id" use="optional"/>
   </xs:complexType>
   <xs:complexType name="licenseType" mixed="true">
     <xs:sequence>
@@ -74,19 +85,11 @@
     </xs:sequence>
     <xs:attribute type="xs:string" name="country" use="optional"/>
     <xs:attribute type="xs:string" name="state" use="optional"/>
-    <xs:attribute type="xs:string" name="countryrestricted" use="optional"/>
+    <xs:attribute type="xs:string" name="countryRestricted" use="optional"/>
     <xs:attribute type="xs:string" name="regionRestricted" use="optional"/>
     <xs:attribute type="xs:string" name="type" use="optional"/>
     <xs:attribute type="xs:string" name="expires" use="optional"/>
     <xs:attribute type="xs:string" name="sponsored" use="optional"/>
-  </xs:complexType>
-  <xs:complexType name="issuerType">
-    <xs:sequence>
-      <xs:element type="xs:string" name="legalName"/>
-      <xs:element type="xs:string" name="gorg"/>
-    </xs:sequence>
-    <xs:attribute type="xs:string" name="registered"/>
-    <xs:attribute type="xs:int" name="id"/>
   </xs:complexType>
   <xs:complexType name="authorizationType">
     <xs:sequence>
@@ -106,6 +109,9 @@
       <xs:element type="xs:string" name="region" minOccurs="0"/>
       <xs:element type="xs:string" name="city" minOccurs="0"/>
       <xs:element type="xs:string" name="state" minOccurs="0"/>
+      <xs:element type="xs:string" name="url" minOccurs="0"/>
+      <xs:element type="contactsType" name="contacts" minOccurs="0"/>
+      <xs:element type="addressType" name="address" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute type="xs:string" name="registered" use="optional"/>
     <xs:attribute type="xs:int" name="id" use="optional"/>
@@ -117,8 +123,8 @@
       <xs:element type="xs:string" name="title"/>
       <xs:element type="xs:string" name="latin" minOccurs="0"/>
       <xs:element type="xs:float" name="gpa" minOccurs="0"/>
-      <xs:element type="xs:short" name="start" minOccurs="0"/>
-      <xs:element name="complete">
+      <xs:element type="xs:string" name="start" minOccurs="0"/>
+      <xs:element name="complete" minOccurs="0">
         <xs:complexType>
           <xs:simpleContent>
             <xs:extension base="xs:short">
@@ -143,16 +149,18 @@
     </xs:simpleContent>
   </xs:complexType>
   <xs:complexType name="formationType">
-    <xs:sequence>
-      <xs:element type="credentialType" name="credential" maxOccurs="unbounded" minOccurs="0"/>
-    </xs:sequence>
+    <xs:choice maxOccurs="unbounded" minOccurs="0">
+      <xs:element type="credentialType" name="credential"/>
+    </xs:choice>
   </xs:complexType>
   <xs:complexType name="employerType">
     <xs:sequence>
       <xs:element type="xs:string" name="legalName"/>
-      <xs:element type="xs:string" name="region"/>
-      <xs:element type="xs:string" name="city"/>
-      <xs:element type="xs:string" name="state"/>
+      <xs:element type="xs:string" name="region" minOccurs="0"/>
+      <xs:element type="xs:string" name="city" minOccurs="0"/>
+      <xs:element type="xs:string" name="state" minOccurs="0"/>
+      <xs:element type="xs:string" name="url" minOccurs="0"/>
+      <xs:element type="addressType" name="address" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="dutiesType" mixed="true">
@@ -166,9 +174,10 @@
       <xs:element type="employerType" name="employer"/>
       <xs:element type="xs:string" name="title"/>
       <xs:element type="xs:short" name="start"/>
+      <xs:element type="xs:short" name="complete" minOccurs="0"/>
       <xs:element type="dutiesType" name="duties"/>
     </xs:sequence>
-    <xs:attribute type="xs:string" name="type"/>
+    <xs:attribute type="xs:string" name="type" use="optional"/>
   </xs:complexType>
   <xs:complexType name="internshipType">
     <xs:sequence>
@@ -179,10 +188,20 @@
       <xs:element type="dutiesType" name="duties"/>
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="volunteerType">
+    <xs:sequence>
+      <xs:element type="employerType" name="employer"/>
+      <xs:element type="xs:string" name="title"/>
+      <xs:element type="xs:short" name="start"/>
+      <xs:element type="xs:short" name="complete"/>
+      <xs:element type="dutiesType" name="duties"/>
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="experienceType">
     <xs:sequence>
-      <xs:element type="roleType" name="role"/>
+      <xs:element type="roleType" name="role" maxOccurs="unbounded" minOccurs="0"/>
       <xs:element type="internshipType" name="internship"/>
+      <xs:element type="volunteerType" name="volunteer"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="spanObType">
@@ -191,6 +210,7 @@
       <xs:element type="formationType" name="formation"/>
       <xs:element type="experienceType" name="experience"/>
     </xs:sequence>
+    <xs:attribute type="xs:float" name="version"/>
     <xs:attribute type="xs:string" name="type"/>
   </xs:complexType>
 </xs:schema>
